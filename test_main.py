@@ -23,9 +23,9 @@ class TestMain(unittest.TestCase):
             None  # To stop the loop
         ]
         mock_input.side_effect = [
-            {"graph_data": [(1, 2), (2, 3), (3, 4)]},
-            {"graph_data": [(1, 2), (2, 3), (3, 4), (4, 1)]},
-            {"graph_data": [(1, 2), (2, 3), (3, 4)]}
+            [(1, 2), (2, 3), (3, 4)],
+            [(1, 2), (2, 3), (3, 4), (4, 1)],
+            [(1, 2), (2, 3), (3, 4)]
         ]
         mock_path.return_value = "path result"
         mock_mst.return_value = "mst result"
@@ -35,9 +35,9 @@ class TestMain(unittest.TestCase):
         main.main()
 
         # Verify
-        mock_path.assert_called_once_with([(1, 2), (2, 3), (3, 4)], {"graph_data": [(1, 2), (2, 3), (3, 4)]})
-        mock_mst.assert_called_once_with([(1, 2), (2, 3), (3, 4), (4, 1)], {"graph_data": [(1, 2), (2, 3), (3, 4), (4, 1)]})
-        mock_isomorphism.assert_called_once_with([(1, 2), (2, 3), (3, 4)], {"graph_data": [(1, 2), (2, 3), (3, 4)]})
+        mock_path.assert_called_once_with(mock_challenge.side_effect[0], mock_input.side_effect[0])
+        mock_mst.assert_called_once_with(mock_challenge.side_effect[1], mock_input.side_effect[1])
+        mock_isomorphism.assert_called_once_with(mock_challenge.side_effect[2], mock_input.side_effect[2])
 
 if __name__ == '__main__':
     unittest.main()
