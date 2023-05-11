@@ -22,7 +22,13 @@ class TestMain(unittest.TestCase):
             {"type": "graph_isomorphism", "graph_data": [(1, 2), (2, 3), (3, 4)], "other_graph": [(5, 6), (6, 7), (7, 8)]},
             None  # To stop the loop
         ]
-        mock_input.side_effect = ["user input 1", "user input 2", "user input 3"]
+        # mock_input.side_effect = ["user input 1", "user input 2", "user input 3"]
+        mock_input.side_effect = [
+            [(1, 2), (2, 3), (3, 4)], 
+            [(1, 2), (2, 3), (3, 4), (4, 1)], 
+            [(1, 2), (2, 3), (3, 4)]
+                ]
+
 
         # Execute
         main.main()
