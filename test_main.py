@@ -23,13 +23,13 @@ class TestMain(unittest.TestCase):
             None  # To stop the loop
         ]
         mock_input.side_effect = [
-            [(1, 2), (2, 3), (3, 4)],
-            [(1, 2), (2, 3), (3, 4), (4, 1)],
-            [(1, 2), (2, 3), (3, 4)]
+            [(1, 2), (2, 3), (3, 4)],  # Shortest path input
+            [(1, 2), (2, 3), (3, 4), (4, 1)],  # MST input
+            [(5, 6), (6, 7), (7, 8)]  # Graph isomorphism input
         ]
-        mock_path.return_value = "path result"
-        mock_mst.return_value = "mst result"
-        mock_isomorphism.return_value = "isomorphism result"
+        mock_path.return_value = True
+        mock_mst.return_value = True
+        mock_isomorphism.return_value = True
 
         # Execute
         main.main()
@@ -38,6 +38,7 @@ class TestMain(unittest.TestCase):
         mock_path.assert_called_once_with(mock_challenge.side_effect[0], mock_input.side_effect[0])
         mock_mst.assert_called_once_with(mock_challenge.side_effect[1], mock_input.side_effect[1])
         mock_isomorphism.assert_called_once_with(mock_challenge.side_effect[2], mock_input.side_effect[2])
+
 
 if __name__ == '__main__':
     unittest.main()
