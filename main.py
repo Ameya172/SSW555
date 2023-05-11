@@ -1,7 +1,7 @@
 from graph import Graph
-# from shortest_path import shortest_path
-# from minimum_spanning_tree import minimum_spanning_tree
-# from graph_isomorphism import graph_isomorphism
+from shortest_path import shortest_path
+from minimum_spanning_tree import minimum_spanning_tree
+from graph_isomorphism import graph_isomorphism
 from utils import display_challenge, get_input
 
 def main():
