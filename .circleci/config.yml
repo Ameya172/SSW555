@@ -1,1 +1,25 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.2
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/python:3.9
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install -r requirements.txt
+            pip install unittest2
+            python -m unittest discover
+      - store_artifacts:
+          path: test-reports/
+          destination: test-reports
+
+workflows:
+  build-and-test-workflow:
+    jobs:
+      - build-and-test
 
