@@ -7,4 +7,3 @@ def minimum_spanning_tree(challenge, user_input):
 
     mst = nx.minimum_spanning_tree(G).edges()
     return sorted(user_input) == sorted(mst)
-
