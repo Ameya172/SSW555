@@ -22,23 +22,22 @@ class TestMain(unittest.TestCase):
             {"type": "graph_isomorphism", "graph_data": [(1, 2), (2, 3), (3, 4)], "other_graph": [(5, 6), (6, 7), (7, 8)]},
             None  # To stop the loop
         ]
-        # mock_input.side_effect = ["user input 1", "user input 2", "user input 3"]
         mock_input.side_effect = [
-            [(1, 2), (2, 3), (3, 4)], 
-            [(1, 2), (2, 3), (3, 4), (4, 1)], 
-            [(1, 2), (2, 3), (3, 4)]
-                ]
-
+            {"graph_data": [(1, 2), (2, 3), (3, 4)]},
+            {"graph_data": [(1, 2), (2, 3), (3, 4), (4, 1)]},
+            {"graph_data": [(1, 2), (2, 3), (3, 4)]}
+        ]
+        mock_path.return_value = "path result"
+        mock_mst.return_value = "mst result"
+        mock_isomorphism.return_value = "isomorphism result"
 
         # Execute
         main.main()
 
         # Verify
-        mock_path.assert_called_once_with([(1, 2), (2, 3), (3, 4)], "user input 1")
-        mock_mst.assert_called_once_with([(1, 2), (2, 3), (3, 4), (4, 1)], "user input 2")
-        mock_isomorphism.assert_called_once_with([(1, 2), (2, 3), (3, 4)], "user input 3")
-
-
+        mock_path.assert_called_once_with([(1, 2), (2, 3), (3, 4)], {"graph_data": [(1, 2), (2, 3), (3, 4)]})
+        mock_mst.assert_called_once_with([(1, 2), (2, 3), (3, 4), (4, 1)], {"graph_data": [(1, 2), (2, 3), (3, 4), (4, 1)]})
+        mock_isomorphism.assert_called_once_with([(1, 2), (2, 3), (3, 4)], {"graph_data": [(1, 2), (2, 3), (3, 4)]})
 
 if __name__ == '__main__':
     unittest.main()
