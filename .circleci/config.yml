@@ -12,14 +12,15 @@ jobs:
       - run:
           command: |
             pip install -r requirements.txt
-            pip install unittest2
-            python -m unittest discover
+            pip install pytest
+            pytest --junitxml=test-results/junit.xml
+      - store_test_results:
+          path: test-results
       - store_artifacts:
-          path: test-reports/
-          destination: test-reports
+          path: test-results
+          destination: test-results
 
 workflows:
   build-and-test-workflow:
     jobs:
       - build-and-test
-
