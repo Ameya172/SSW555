@@ -1,5 +1,5 @@
 # SSW555
-# Project Title
+# Graph Solver
 
 This project demonstrates a test suite for graph-related algorithms. It includes implementations for finding the shortest path, calculating the minimum spanning tree, and checking for graph isomorphism.
 
