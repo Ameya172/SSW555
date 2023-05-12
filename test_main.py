@@ -20,7 +20,7 @@ class TestMain(unittest.TestCase):
             main()
             mock_print.assert_called_once_with('Incorrect!')
     
-        @patch('utils.Utils.get_input', return_value=[(1, 2), (2, 3), (3, 4), (4, 1)])
+    @patch('utils.Utils.get_input', return_value=[(1, 2), (2, 3), (3, 4), (4, 1)])
     @patch('utils.Utils.display_challenge', side_effect=[{"type": "minimum_spanning_tree", "graph_data": [(1, 2), (2, 3), (3, 4), (4, 1)]}, None])
     def test_minimum_spanning_tree_correct(self, mock_input, mock_challenge):
         with patch('builtins.print') as mock_print:
