@@ -1,0 +1,16 @@
+# Summary
+The project in discussion is a console-based application that presents different graph theory challenges to the user, and checks if their inputted solutions are correct. It's built around Python's NetworkX library, which provides powerful functionalities for the creation, manipulation, and study of complex networks. The project comprises several Python scripts which contain functions and classes that handle different aspects of the application.
+
+The key functionality of this project is divided into four main scripts: `shortest_path.py`, `minimum_spanning_tree.py`, `graph_isomorphism.py`, and `main.py`. Each script corresponds to a different graph theory concept, except for the `main.py` script, which acts as the entry point for the application.
+
+The `shortest_path.py` script contains a function that, given a graph and two nodes, checks if the user's inputted path is indeed the shortest path between the two nodes. The `minimum_spanning_tree.py` script does a similar job, but for the minimum spanning tree problem: it checks if the user's inputted set of edges forms a minimum spanning tree of the given graph. The `graph_isomorphism.py` script checks if two graphs are isomorphic, based on the user's input of the second graph.
+
+The `main.py` script is where the main logic of the application resides. It continuously presents the user with random graph theory challenges (shortest path, minimum spanning tree, or graph isomorphism), asks for their solutions, and checks if the solutions are correct. It leverages the functions defined in the other scripts to perform these checks. If a correct solution is inputted, it prints "Correct!", otherwise it prints "Incorrect!".
+
+The `utils.py` script contains utility functions that are used across the project. One function generates random challenges to present to the user, and another function handles user input, converting it from a string into a Python data structure (list or tuple of integers or tuples) that can be processed by the other functions.
+
+The `graph.py` script contains a `Graph` class that provides an object-oriented interface for handling graphs. This class uses NetworkX's functionality to perform operations such as adding edges to a graph, finding the shortest path between two nodes, finding the minimum spanning tree, and checking if two graphs are isomorphic.
+
+To ensure the correctness of the application's logic, a test script `test_main.py` is used. This script uses Python's `unittest` module to define test cases for the main function. The `unittest.mock` module is used to replace certain parts of the system under test with mock objects, so that the test cases can focus on the logic of the `main` function rather than the specifics of the graph theory problems. These test cases verify that the `main` function correctly handles a variety of inputs and expected outputs.
+
+In summary, this project is a comprehensive implementation of different graph theory problems in a console-based format. It combines the power of NetworkX's graph algorithms with Python's built-in functionalities for user interaction and testing, to create an educational tool for those learning graph theory. It is a great example of how Python and its scientific libraries can be used to create interactive applications for mathematical and scientific education.
