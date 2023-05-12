@@ -1,4 +1,4 @@
-# Summary
+# About
 The project in discussion is a console-based application that presents different graph theory challenges to the user, and checks if their inputted solutions are correct. It's built around Python's NetworkX library, which provides powerful functionalities for the creation, manipulation, and study of complex networks. The project comprises several Python scripts which contain functions and classes that handle different aspects of the application.
 
 The key functionality of this project is divided into four main scripts: `shortest_path.py`, `minimum_spanning_tree.py`, `graph_isomorphism.py`, and `main.py`. Each script corresponds to a different graph theory concept, except for the `main.py` script, which acts as the entry point for the application.
